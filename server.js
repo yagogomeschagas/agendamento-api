@@ -4,6 +4,8 @@ const cors = require('cors');
 
 const authRoutes = require('./src/routes/auth.routes');
 const perfilRoutes = require('./src/routes/perfil.routes');
+const negocioRoutes = require('./src/routes/negocio.routes');
+const agendamentoRoutes = require('./src/routes/agendamento.routes');
 
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/auth', authRoutes);
+app.use('/negocios', negocioRoutes);
+app.use('/agendamentos', agendamentoRoutes);
 app.use('/', perfilRoutes);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
